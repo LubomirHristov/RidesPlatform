@@ -9,7 +9,7 @@ If you use OSX or Windows, you will need to adapt accordingly.
 
     ```bash
     git clone https://github.com/LubomirHristov/RidesPlatform.git
-    cd RidesPlatform
+    cd RidesPlatform/
     ```
 
 2. Build the project with Maven
