@@ -1,6 +1,10 @@
 Setup
 -
 
+The following guide to provision a development environment assumes Linux as the operating system. 
+If you use OSX or Windows, you will need to adapt accordingly.
+
+
 1. Clone the repository of the rides platform task and change directory to RidesPlatform
 
     ```bash
@@ -26,7 +30,9 @@ Part 1
     java -cp target/RidesPlatform-1.0-SNAPSHOT-jar-with-dependencies.jar console.ConsoleSearchEngine <pickup> <dropoff> <passengers> <supplier>
     ```
     
-    *Note:* the first 3 arguments are required by the application. If a `supplier` argument is present then the engine makes a search for that supplier only, otherwise it calls the API of all suppliers.
+    *Note:* the first 3 arguments are required by the application. 
+    If a `supplier` argument is present then the engine makes a search for that supplier only, 
+    otherwise it calls the API of all suppliers.
     
     `pickup` - pickup location for the journey, *e.g. 51.470020,-0.454295*  
     `dropoff` - drop off location for the journey, *e.g. 51.00000,112.0000*  
@@ -39,7 +45,8 @@ Part 1
     java -cp target/RidesPlatform-1.0-SNAPSHOT-jar-with-dependencies.jar console.ConsoleSearchEngine <pickup> <dropoff> <passengers>
     ```
     
-    The 3 required arguments are the same as in Part 1A and the supplier argument is missing indicating that the engine should call the API of all suppliers.
+    The 3 required arguments are the same as in Part 1A and the supplier argument is missing indicating that the engine 
+    should call the API of all suppliers.
     
     
 Part 2
