@@ -1,0 +1,31 @@
+{
+  "supplier_id":"DAVE",
+  "pickup":"51.470020,-0.454295",
+  "dropoff":"51.00000,112.0000",
+  "options":[
+    {
+      "car_type":"STANDARD",
+      "price":150000
+    },
+    {
+      "car_type":"EXECUTIVE",
+      "price":267000
+    },
+    {
+      "car_type":"LUXURY",
+      "price":200000
+    },
+    {
+      "car_type":"PEOPLE_CARRIER",
+      "price":330000
+    },
+    {
+      "car_type":"LUXURY_PEOPLE_CARRIER",
+      "price":81000
+    },
+    {
+      "car_type":"MINIBUS",
+      "price":230000
+    }
+  ]
+}

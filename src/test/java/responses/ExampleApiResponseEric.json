@@ -1,0 +1,31 @@
+{
+  "supplier_id":"ERIC",
+  "pickup":"51.470020,-0.454295",
+  "dropoff":"51.00000,112.0000",
+  "options":[
+    {
+      "car_type":"STANDARD",
+      "price":160000
+    },
+    {
+      "car_type":"EXECUTIVE",
+      "price":287000
+    },
+    {
+      "car_type":"LUXURY",
+      "price":190000
+    },
+    {
+      "car_type":"PEOPLE_CARRIER",
+      "price":340000
+    },
+    {
+      "car_type":"LUXURY_PEOPLE_CARRIER",
+      "price":80000
+    },
+    {
+      "car_type":"MINIBUS",
+      "price":250000
+    }
+  ]
+}

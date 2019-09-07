@@ -1,0 +1,31 @@
+{
+  "supplier_id":"JEFF",
+  "pickup":"51.470020,-0.454295",
+  "dropoff":"51.00000,112.0000",
+  "options":[
+    {
+      "car_type":"STANDARD",
+      "price":140000
+    },
+    {
+      "car_type":"EXECUTIVE",
+      "price":277000
+    },
+    {
+      "car_type":"LUXURY",
+      "price":210000
+    },
+    {
+      "car_type":"PEOPLE_CARRIER",
+      "price":320000
+    },
+    {
+      "car_type":"LUXURY_PEOPLE_CARRIER",
+      "price":82000
+    },
+    {
+      "car_type":"MINIBUS",
+      "price":240000
+    }
+  ]
+}

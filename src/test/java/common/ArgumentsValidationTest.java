@@ -16,7 +16,7 @@ public class ArgumentsValidationTest {
         String dropOff = "151,27,14";
         String passengers = "4";
 
-        String result = ConsoleSearchEngine.validateArguments(pickup, dropOff, passengers);
+        String result = Validator.validateArguments(pickup, dropOff, passengers);
 
         assertEquals("Invalid coordinates.", result);
     }
@@ -27,7 +27,7 @@ public class ArgumentsValidationTest {
         String dropOff = "c,d";
         String passengers = "4";
 
-        String result = ConsoleSearchEngine.validateArguments(pickup, dropOff, passengers);
+        String result = Validator.validateArguments(pickup, dropOff, passengers);
 
         assertEquals("Invalid coordinates.", result);
     }
@@ -38,7 +38,7 @@ public class ArgumentsValidationTest {
         String dropOff = "51.00000,112.0000";
         String passengers = "-4";
 
-        String result = ConsoleSearchEngine.validateArguments(pickup, dropOff, passengers);
+        String result = Validator.validateArguments(pickup, dropOff, passengers);
 
         assertEquals("Invalid number of passengers.", result);
     }
@@ -49,7 +49,7 @@ public class ArgumentsValidationTest {
         String dropOff = "51.00000,112.0000";
         String passengers = "abc";
 
-        String result = ConsoleSearchEngine.validateArguments(pickup, dropOff, passengers);
+        String result = Validator.validateArguments(pickup, dropOff, passengers);
 
         assertEquals("Invalid number of passengers.", result);
     }
@@ -60,7 +60,7 @@ public class ArgumentsValidationTest {
         String dropOff = "51.00000,112.0000";
         String passengers = "4";
 
-        String result = ConsoleSearchEngine.validateArguments(pickup, dropOff, passengers);
+        String result = Validator.validateArguments(pickup, dropOff, passengers);
 
         assertEquals("", result);
     }
@@ -70,7 +70,7 @@ public class ArgumentsValidationTest {
         List<String> suppliers = Arrays.asList("dave", "eric", "jeff");
         String supplier = "dave";
 
-        String result = ConsoleSearchEngine.validateSupplier(suppliers, supplier);
+        String result = Validator.validateSupplier(suppliers, supplier);
 
         assertEquals("", result);
     }
@@ -80,7 +80,7 @@ public class ArgumentsValidationTest {
         List<String> suppliers = Arrays.asList("dave, eric, jeff");
         String supplier = "john";
 
-        String result = ConsoleSearchEngine.validateSupplier(suppliers, supplier);
+        String result = Validator.validateSupplier(suppliers, supplier);
 
         assertEquals(String.format("Supplier %s does not exist.", supplier), result);
     }

@@ -62,7 +62,7 @@ public class Supplier {
      * @param allOptions the unfiltered options
      * @return the relevant map of options
      */
-    private Map<String, String> filterOptions(String passengers, List<Option> allOptions) {
+    public Map<String, String> filterOptions(String passengers, List<Option> allOptions) {
         Map<String, String> filteredOptionsMap = new HashMap<>();
 
         for (Option option : allOptions) {

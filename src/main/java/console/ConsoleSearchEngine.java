@@ -9,6 +9,8 @@ import java.util.Map;
 import java.util.LinkedList;
 import java.util.LinkedHashMap;
 
+import static common.Validator.*;
+
 
 public class ConsoleSearchEngine {
 
@@ -27,7 +29,7 @@ public class ConsoleSearchEngine {
 
         String validationMessage = validateArguments(pickup, dropOff, passengers);
 
-        if(!validationMessage.equals("")){
+        if(!argumentsAreValid(validationMessage)){
             System.out.println(validationMessage);
             System.exit(0);
         }
@@ -37,7 +39,7 @@ public class ConsoleSearchEngine {
             String supplier = args[3].toLowerCase();
             String validSupplierMessage = validateSupplier(suppliers, supplier);
 
-            if(!validSupplierMessage.equals("")){
+            if(!argumentsAreValid(validSupplierMessage)){
                 System.out.println(validSupplierMessage);
                 System.exit(0);
             }
@@ -49,61 +51,11 @@ public class ConsoleSearchEngine {
     }
 
     /**
-     * Validates the pickup, drop off and passengers commandline arguments
-     * @param pickup pickup location of the journey
-     * @param dropOff drop off location of the journey
-     * @param passengers number of passengers
-     * @return relevant validation message
-     */
-    public static String validateArguments(String pickup, String dropOff, String passengers){
-        String[] pickupCoordinates = pickup.split(",");
-        String[] dropOffCoordinates = dropOff.split(",");
-
-        if(pickupCoordinates.length != 2 || dropOffCoordinates.length != 2){
-            return "Invalid coordinates.";
-        }
-
-        try{
-            Double.parseDouble(pickupCoordinates[0]);
-            Double.parseDouble(pickupCoordinates[1]);
-            Double.parseDouble(dropOffCoordinates[0]);
-            Double.parseDouble(dropOffCoordinates[1]);
-        }catch (NumberFormatException nfe){
-            return "Invalid coordinates.";
-        }
-
-        try{
-            int numOfPassengers = Integer.parseInt(passengers);
-            if(numOfPassengers < 0){
-                throw new NumberFormatException();
-            }
-        }catch (NumberFormatException nfe){
-            return "Invalid number of passengers.";
-        }
-
-        return "";
-    }
-
-    /**
-     * Validates the supplier commandline argument
-     * @param availableSuppliers list of available suppliers
-     * @param supplier supplier that is checked
-     * @return relevant validation message
-     */
-    public static String validateSupplier(List<String> availableSuppliers, String supplier){
-        if(availableSuppliers.contains(supplier)){
-            return "";
-        }
-
-        return String.format("Supplier %s does not exist.", supplier);
-    }
-
-    /**
      * Prints all options form a single supplier in the {car type} - {price} format
      * @param options the options that the supplier offers
      * @param passengers the number of passengers
      */
-    public static void printSingleSupplierOptions(Map<String, String> options, String passengers){
+    private static void printSingleSupplierOptions(Map<String, String> options, String passengers){
         Map<String, String> sortedOptions = sortByValue(options);
 
         if(options.size() == 0){
@@ -122,7 +74,7 @@ public class ConsoleSearchEngine {
      * @param unsortedOptions an unsorted map of options
      * @return a sorted map with all options
      */
-    private static Map<String, String> sortByValue(Map<String, String> unsortedOptions) {
+    public static Map<String, String> sortByValue(Map<String, String> unsortedOptions) {
         // Create a list from elements of HashMap
         List<Map.Entry<String, String>> list =
                 new LinkedList<>(unsortedOptions.entrySet());

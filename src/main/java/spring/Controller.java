@@ -13,6 +13,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+import static common.Validator.*;
+
 
 @RestController
 public class Controller {
@@ -34,20 +36,32 @@ public class Controller {
             @RequestParam(value = "passengers", defaultValue = "") String passengers){
 
         SearchEngine searchEngine = new SearchEngine();
-        List<String> suppliers = Arrays.asList("dave", "eric", "jeff");
         ObjectMapper objectMapper = new ObjectMapper();
+        List<String> suppliers = Arrays.asList("dave", "eric", "jeff");
+
+        String validationMessage = validateArguments(pickup, dropoff, passengers);
+
+        if(!argumentsAreValid(validationMessage)){
+            return String.format("%s %n", validationMessage);
+        }
 
         if(supplier != null){
+            String validSupplierMessage = validateSupplier(suppliers, supplier);
+
+            if(!argumentsAreValid(validSupplierMessage)){
+                return String.format("%s %n", validSupplierMessage);
+            }
+
             Map<String, String> searchResult = searchEngine.singleSupplierSearch(supplier.toLowerCase(), pickup, dropoff, passengers);
             try {
-                return objectMapper.writeValueAsString(searchResult);
+                return String.format("%s %n",  objectMapper.writeValueAsString(searchResult));
             } catch (JsonProcessingException e) {
                 return "{\"error\":\"Parsing error occurred.\"}";
             }
         }else{
             Map<String, List<String>> searchResult = searchEngine.multipleSuppliersSearch(pickup, dropoff, passengers, suppliers);
             try {
-                return objectMapper.writeValueAsString(searchResult);
+                return String.format("%s %n", objectMapper.writeValueAsString(searchResult));
             } catch (JsonProcessingException e) {
                 return "{\"error\":\"Parsing error occurred.\"}";
             }
