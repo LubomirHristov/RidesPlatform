@@ -1,3 +1,13 @@
+Requirements
+-
+
+The project was tested on a system with the following dependencies:
+
+#### Java 12.0.1
+#### Apache Maven 3.6.0
+
+*Note:* the project successfully runs with lower versions than those specified above.
+
 Setup
 -
 
